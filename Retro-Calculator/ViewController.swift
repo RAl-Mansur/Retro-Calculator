@@ -56,18 +56,35 @@ class ViewController: UIViewController {
     @IBAction func onDividePressed(sender: AnyObject) {
         processOperation(Operation.Divide)
     }
+    
     @IBAction func onMultiplyPressed(sender: AnyObject) {
         processOperation(Operation.Multiply)
     }
+    
     @IBAction func onSubtractPressed(sender: AnyObject) {
         processOperation(Operation.Subtract)
     }
+    
     @IBAction func onAdditionPressed(sender: AnyObject) {
         processOperation(Operation.Addition)
     }
     
     @IBAction func onEqualsPressed(sender: AnyObject) {
         processOperation(currentOperation)
+    }
+    
+    @IBAction func onClearPressed(sender: AnyObject) {
+        playSound()
+        clear()
+        
+    }
+    
+    func clear() {
+        currentOperation = Operation.Empty
+        runningNumber = ""
+        leftValStr = ""
+        rightValStr = ""
+        outputLbl.text = "0"
     }
     
     func processOperation(op: Operation) {
